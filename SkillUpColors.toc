@@ -1,0 +1,7 @@
+## Interface: 16001
+## IconTexture: Interface\Icons\Trade_Tailoring
+## Title: Skill-Up Colors
+## Notes: Colors recipe names in the profession window by skill-up chance (orange, yellow, green) instead of white or item rarity.
+## Version: 1.0
+
+SkillUpColors.lua

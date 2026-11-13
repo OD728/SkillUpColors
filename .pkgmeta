@@ -1,0 +1,6 @@
+package-as: SkillUpColors
+
+ignore:
+  - README.md
+  - art
+  - CHANGELOG.md
