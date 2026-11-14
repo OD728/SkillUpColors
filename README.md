@@ -17,6 +17,12 @@
 
 No setup and no slash commands.
 
+## Screenshots
+
+![Tailoring: recipe names in orange, yellow and green](art/screenshot-tailoring.png)
+
+![Enchanting: colored recipe names and craftable counts](art/screenshot-enchanting.png)
+
 ## Install
 
 Download it from CurseForge, or copy this repository's files into a folder named
