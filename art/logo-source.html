@@ -1,17 +1,17 @@
 <!doctype html>
 <html><head><meta charset="utf-8"><title>Skill-Up Colors logo (Paint style)</title>
-<style>html,body{margin:0;background:#fff}canvas{display:block}</style></head>
+<style>html,body{margin:0;background:#16162a}canvas{display:block}</style></head>
 <body><canvas id="c" width="512" height="512"></canvas>
 <script>
 // Skill-Up Colors logo, drawn like a kid did it in MS Paint.
 // Seeded random so every render gives the same picture.
-let seed = 7;
+let seed = 478409440; // = seed 7 after the old sun was drawn, so the arrows keep their exact wobble
 function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
 function jit(n) { return (rnd() - 0.5) * 2 * n; }
 
 const c = document.getElementById('c');
 const g = c.getContext('2d');
-g.fillStyle = '#fff'; g.fillRect(0, 0, 512, 512);
+g.fillStyle = '#16162a'; g.fillRect(0, 0, 512, 512);  // dark night sky
 g.lineCap = 'round'; g.lineJoin = 'round';
 
 // A shaky line through points: each segment is cut into little steps that wander.
@@ -44,16 +44,6 @@ function arrow(cx, top, bottom, w) {
           [cx - s, bottom], [cx - s, top + h], [cx - w, top + h]];
 }
 
-// Sun in the corner, of course, with a face.
-sloppyFill([[60,40],[100,30],[130,60],[125,100],[90,125],[50,110],[35,75]], '#ffff00', 6, -4);
-stroke([[60,40],[100,30],[130,60],[125,100],[90,125],[50,110],[35,75]], '#000', 6, 3, true);
-for (let a = 0; a < 8; a++) {
-  const ang = a / 8 * Math.PI * 2 + 0.2, r1 = 62, r2 = 62 + 26 + jit(10);
-  stroke([[83 + Math.cos(ang) * r1, 78 + Math.sin(ang) * r1], [83 + Math.cos(ang) * r2, 78 + Math.sin(ang) * r2]], '#ffcc00', 7, 2);
-}
-g.fillStyle = '#000'; g.fillRect(66, 64, 9, 11); g.fillRect(94, 62, 9, 11);
-stroke([[64,92],[75,103],[90,106],[104,98]], '#000', 5, 1.5);
-
 // Grass along the bottom, scribbled.
 sloppyFill([[0,470],[512,462],[512,512],[0,512]], '#00b000', 0, 0);
 for (let x = 6; x < 512; x += 16) stroke([[x, 475], [x + 6 + jit(3), 448 + jit(6)]], '#008000', 5, 1);
@@ -65,15 +55,15 @@ const arrows = [
   { pts: arrow(398, 92, 465, 74),  fill: '#ff8020', off: [6, -5] },
 ];
 for (const a of arrows) sloppyFill(a.pts, a.fill, a.off[0], a.off[1]);
-for (const a of arrows) stroke(a.pts, '#000', 7, 4, true);
+for (const a of arrows) stroke(a.pts, '#fff', 7, 4, true);
 
 // A few happy "speed lines" because the arrows are going UP.
-stroke([[200,150],[214,118]], '#000', 5, 1); stroke([[222,158],[240,124]], '#000', 5, 1);
-stroke([[470,180],[490,150]], '#000', 5, 1); stroke([[478,214],[500,186]], '#000', 5, 1);
+stroke([[200,150],[214,118]], '#fff', 5, 1); stroke([[222,158],[240,124]], '#fff', 5, 1);
+stroke([[470,180],[490,150]], '#fff', 5, 1); stroke([[478,214],[500,186]], '#fff', 5, 1);
 
 // MS Paint has no smoothing: snap every pixel to the nearest solid color.
 const img = g.getImageData(0, 0, 512, 512), d = img.data;
-const palette = [[255,255,255],[0,0,0],[255,255,0],[255,204,0],[0,176,0],[0,128,0],[34,204,34],[255,238,0],[255,128,32]];
+const palette = [[22,22,42],[255,255,255],[0,176,0],[0,128,0],[34,204,34],[255,238,0],[255,128,32]];
 for (let i = 0; i < d.length; i += 4) {
   let best = palette[0], bd = 1e9;
   for (const p of palette) {
