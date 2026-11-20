@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1
+
+- Minor fixes.
+- The name in the AddOns list is now lavender, like the author's other addons.
+
 ## 1.0
 
 First release.
