@@ -2,7 +2,7 @@
 
 ![Skill-Up Colors](art/curseforge-logo.png)
 
-**Recipe names colored by skill-up chance**, made for WoW: Forever.
+**WoW: Forever addon:** recipe names colored by skill-up chance.
 
 | Color | Meaning |
 | --- | --- |
